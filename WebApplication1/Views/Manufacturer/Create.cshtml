@@ -1,0 +1,22 @@
+﻿@using WebApplication1.Models
+@model Manufacturer
+@{
+    ViewBag.Title = "Create";
+}
+
+<div>
+    @using (Html.BeginForm("Create", "Manufacturer", FormMethod.Post))
+    {
+        <p>
+            @Html.LabelFor(x => x.ManufacturerName)
+        </p>
+        <p>
+            @Html.ValidationMessageFor(x => x.ManufacturerName)
+        </p>
+        <p>
+            @Html.TextBoxFor(x => x.ManufacturerName)
+        </p>
+
+        <input type="submit" />
+    }
+</div>

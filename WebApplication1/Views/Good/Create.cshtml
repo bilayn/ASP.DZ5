@@ -1,0 +1,51 @@
+﻿@using WebApplication1.Models
+@model Good
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<div>
+    @using (Html.BeginForm("Create", "Good", FormMethod.Post))
+    {
+        <p>
+            @Html.LabelFor(x => x.GoodName)
+        </p>
+        <p>
+            @Html.ValidationMessageFor(x => x.GoodName)
+        </p>
+        <p>
+            @Html.TextBoxFor(x => x.GoodName)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Manufacturer.ManufacturerName)
+        </p>
+        <p>
+            @Html.DropDownListFor(x => x.ManufacturerId,
+                ViewBag.Manufacturers as List<SelectListItem>,
+                new { @class = "form-control" })
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Category.CategoryName)
+        </p>
+        <p>
+            @Html.DropDownListFor(x => x.CategoryId,
+                ViewBag.Categories as List<SelectListItem>,
+                new { @class = "form-control" })
+        </p>
+
+        <p>
+            @Html.LabelFor(x => x.GoodCount)
+        </p>
+        <p>
+            @Html.TextBoxFor(x => x.GoodCount)
+        </p>
+        <p>
+            @Html.LabelFor(x => x.Price)
+        </p>
+        <p>
+            @Html.TextBoxFor(x => x.Price)
+        </p>
+        <input type="submit" />
+    }
+</div>

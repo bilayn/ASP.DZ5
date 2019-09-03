@@ -1,0 +1,24 @@
+﻿@using WebApplication1.Models
+@model IEnumerable<Good>
+@{
+    ViewBag.Title = "Index";
+}
+
+<table class="table">
+    @foreach (var good in Model)
+    {
+        <tr>
+            <td>@good.GoodId</td>
+            <td>@good.GoodName</td>
+            <td>@(good.Manufacturer != null ? good.Manufacturer.ManufacturerName : "none")</td>
+            <td>@(good.Category != null ? good.Category.CategoryName : "none")</td>
+            <td>@good.GoodCount</td>
+            <td>@good.Price</td>
+            <td>@Html.ActionLink("Edit", "Edit", "Good", new { id = good.GoodId }, new { @class = "btn btn-primary" })</td>
+            <td>@Html.ActionLink("Remove", "Remove", "Good", new { id = good.GoodId }, new { @class = "btn btn-danger" })</td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Create", "Create", "Good", null, new { @class = "btn btn-success" })
+</div>
